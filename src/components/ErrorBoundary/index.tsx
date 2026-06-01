@@ -1,4 +1,5 @@
 import React, { Component, ReactNode } from "react";
+import { errorLog } from "../../utils";
 
 interface ErrorBoundaryProps {
   children: ReactNode;
@@ -25,6 +26,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
     this.setState({ hasError: true });
     console.error("Ocorreu um erro:", error, errorInfo);
+    errorLog(error, errorInfo);
   }
 
   render(): ReactNode {
