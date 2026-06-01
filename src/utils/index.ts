@@ -5,7 +5,7 @@ export async function resolvePromise<T>(promise: Promise<T>): Promise<T> {
   return await promise;
 }
 
-type ErrorLogFunction = (error: Error, errorInfo: React.ErrorInfo) => void;
+type ErrorLogFunction = (error: Error, errorInfo?: React.ErrorInfo) => void;
 export const errorLog: ErrorLogFunction = (error, errorInfo) => {
   console.error("Ocorreu um erro:", error);
   if (errorInfo) {
